@@ -11,10 +11,10 @@ from numpy.linalg import norm
 from sklearn.neighbors import NearestNeighbors
 from urllib.request import urlopen
 
-feature_list = np.array(pickle.load(urlopen('https://www.onatiglobal.com/embeddings.pkl')))
+feature_list = np.array(pickle.load(open('embeddings.pkl','rb')))
 
 
-filenames = pickle.load(urlopen('https://www.onatiglobal.com/filenames.pkl'))
+filenames = pickle.load(open('filenames.pkl','rb'))
 
 model = ResNet50(weights='imagenet',include_top=False,input_shape=(224,224,3))
 model.trainable = False
